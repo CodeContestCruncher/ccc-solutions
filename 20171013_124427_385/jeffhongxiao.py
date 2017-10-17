@@ -48,13 +48,13 @@ def decide_if_sum_subset_exists(list, S):
     # rows of x2, x3, ... xi
     for i in range(1, len(list)):
 	# cols of N, N+1, ..., P
-        #myprint(table)		# TODO: debug output
+        myprint(table)		# TODO: debug output
         for j in range(0, -N+P+1):
-            if (list[i] == +N+s or 
-		table[i-1][j]):
+            if (list[i] == +N+j or 
+                table[i-1][j]):
                 table[i][j] = True
             if (-N+(j+N) - list[i] >= 0 and	# Q: will this be out of bound?
-		table[i-1][j - list[i]]):
+                table[i-1][j - list[i]]):
                 table[i][j] = True 
 
     myprint(table)
